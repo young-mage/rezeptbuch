@@ -1,4 +1,4 @@
-image: openjdk:15
+image: registry.gitlab.com/Felix-Ulonska/dockerhub-mirror/openjdk
 
 cache:
     paths:
