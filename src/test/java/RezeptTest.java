@@ -23,11 +23,11 @@ public class RezeptTest {
         ArrayList<Zutat> testZutListe = new ArrayList<Zutat>();
         var testRezept = new Rezept("", 0, testZutListe, null);
         testRezept.zutatHinzufuegen(testZutat1, 0);
-        assertEquals(1, testRezept.zutaten.size());
+        assertEquals(1, testRezept.getZutaten().size());
 
         ArrayList<Zutat> sollListe = new ArrayList<Zutat>();
         sollListe.add(testZutat1);
-        assertEquals(testRezept.zutaten, sollListe);
+        assertEquals(testRezept.getZutaten(), sollListe);
     }
 
     @Test public void testZutatEntfernen(){
@@ -36,19 +36,19 @@ public class RezeptTest {
         testRezept.zutatHinzufuegen(testZutat1);
         testRezept.zutatHinzufuegen(testZutat2);
         testRezept.zutatEntfernen(1);
-        assertEquals(testRezept.zutaten.size(), 1);
-        assertEquals(testRezept.zutaten.get(0), testZutat1);
+        assertEquals(testRezept.getZutaten().size(), 1);
+        assertEquals(testRezept.getZutaten().get(0), testZutat1);
     }
 
     @Test public void testAnweisungHinzufuegen(){
         ArrayList<String> testAnwListe = new ArrayList<String>();
         var testRezept = new Rezept("", 0, null, testAnwListe);
         testRezept.anweisungHinzufuegen("ANW0", 0);
-        assertEquals(1, testRezept.anweisungen.size());
+        assertEquals(1, testRezept.getAnweisungen().size());
 
         ArrayList<String> sollListe = new ArrayList<String>();
         sollListe.add("ANW0");
-        assertEquals(testRezept.anweisungen, sollListe);
+        assertEquals(testRezept.getAnweisungen(), sollListe);
     }
 
     @Test public void testAnweisungEntfernen(){
@@ -57,8 +57,8 @@ public class RezeptTest {
         testRezept.anweisungHinzufuegen("ANW0");
         testRezept.anweisungHinzufuegen("ANW1");
         testRezept.anweisungEntfernen(1);
-        assertEquals(testRezept.anweisungen.size(), 1);
-        assertEquals(testRezept.anweisungen.get(0), "ANW0");
+        assertEquals(testRezept.getAnweisungen().size(), 1);
+        assertEquals(testRezept.getAnweisungen().get(0), "ANW0");
     }
 
     @Test public void stringTest(){
@@ -67,7 +67,9 @@ public class RezeptTest {
         var testRezept = new Rezept("testrezept", 0, testZutListe, testAnwListe);
         testRezept.anweisungHinzufuegen("ANW0");
         testRezept.zutatHinzufuegen(testZutat1);
+        testRezept.zutatHinzufuegen(testZutat2);
         String rezeptStr = testRezept.toString();
         String erwarteterStr = "Name: testrezept\nDauer: 0\nZutaten: \n10 Milch\n5 Brot\nAnweisungen: \nANW0\n";
+        assertEquals(erwarteterStr, rezeptStr);
     }
 }
