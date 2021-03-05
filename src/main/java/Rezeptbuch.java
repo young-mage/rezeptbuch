@@ -2,79 +2,61 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Rezeptbuch {
-    public static class Rezept {
-        String name;
-        int dauer;
-        List<Zutat> zutaten;
-        List<String> anweisungen;
-
-        public Rezept(String rezeptname, int rezeptdauer, List<Zutat> rezeptzutaten, List<String> rezeptanweisungen) {
-            this.name = rezeptname;
-            this.dauer = rezeptdauer;
-            this.zutaten = rezeptzutaten;
-            this.anweisungen = rezeptanweisungen;
-        }
-
-        public void zutatHinzufuegen(Zutat zutat, int position) {
-        	this.zutaten.add(zutat);
-        }
-
-        public void zutatEntfernen(int position) {
-        	this.zutaten.remove(0);
-        }
-
-        public void anweisungHinzufuegen(String anweisung, int position) {
-        	this.anweisungen.add(dauer, anweisung);
-        }
-
-        public void anweisungEntfernen(int position) {
-        	this.anweisungen.remove("position");
-        }
-
-        public String toString() {
-        	String rezept = "Name: " + name + "\n" + "Dauer: " + dauer + "\n";
-        	rezept = rezept + "Zutaten: \n";
-        	for (Zutat zutat : zutaten) {
-        		rezept = rezept + zutat.toString() + "\n";
-        	}
-        	rezept = rezept + "Anweisungen: \n";
-        	for (String anweisung : anweisungen) {
-        		rezept = rezept + anweisung + "\n";
-        	}
-        	return rezept;
-        }
-
-    }
-
-    public static class Zutat {
-        String name;
-        int menge;
-
-
-        public Zutat(String zutatenname, int zutatenmenge) {
-            this.name = zutatenname;
-            this.menge = zutatenmenge;
-        }
-
-        public String toString() {
-            return menge + " " + name;
-        }
-    }
 
     List<Rezept> rezepte;
 
-    public Rezeptbuch(List<Rezept> rezepte) {
+	/**
+	 * Default-Konstruktor mit leerer Rezeptliste
+	 */
+	public Rezeptbuch(){
+    	rezepte = new ArrayList<Rezept>();
+	}
+
+	/**
+	 * Rezeptbuch-Konstruktor mit gegebener Rezeptliste
+	 * @param rezepte Liste der Rezepte
+	 */
+	public Rezeptbuch(List<Rezept> rezepte) {
         this.rezepte = rezepte;
     }
 
-    public void rezeptHinzufuegen(Rezept rezept) {
-    	this.rezepte.remove(rezept);
-    }
-
-    public void rezeptEntfernen(Rezept rezept) {
+	/**
+	 * Füge Rezept zum Rezeptbuch hinzu
+	 * @param rezept das hinzuzufügende Rezept
+	 */
+	public void rezeptHinzufuegen(Rezept rezept) {
     	this.rezepte.add(rezept);
     }
 
+	/**
+	 * Füge Rezept an bestimmter Position zum Rezeptbuch hinzu
+	 * @param rezept das hinzuzufügende Rezept
+	 * @param position der Index des hinzuzufügenden Rezepts
+	 */
+	public void rezeptHinzufuegen(Rezept rezept, int position) {
+		this.rezepte.add(position, rezept);
+	}
+
+	/**
+	 * Entferne gegebenes Rezept aus dem Rezeptbuch
+	 * @param rezept Rezept, das zu entfernen ist
+	 */
+    public void rezeptEntfernen(Rezept rezept) {
+    	this.rezepte.remove(rezept);
+    }
+
+	/**
+	 * Entferne Rezept mit gegebenem Index aus dem Rezeptbuch
+	 * @param position Index der Position, die zu entfernen ist
+	 */
+	public void rezeptEntfernen(int position) {
+		this.rezepte.remove(position);
+	}
+
+	/**
+	 * Konvertiere das Rezept zu einem menschlich lesbaren String
+	 * @return das konvertierte Rezeptbuch als String
+	 */
     public String toString() {
     	String rezeptbuch = "Rezeptbuch: \n";
     	for (Rezept rezept : rezepte) {
