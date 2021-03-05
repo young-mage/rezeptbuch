@@ -1,10 +1,10 @@
 import java.util.List;
 
 public class Rezept {
-    String name;
-    int dauer;
-    List<Zutat> zutaten;
-    List<String> anweisungen;
+    private String name;
+    private int dauer;
+    private List<Zutat> zutaten;
+    private List<String> anweisungen;
 
     /**
      * Konstruktor der Klasse
@@ -87,4 +87,45 @@ public class Rezept {
         return rezept;
     }
 
+    /* Getter und Setter */
+
+    // gibt name-Attribut
+    public String getName() {
+        return name;
+    }
+
+    // setzt name-Attribut
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    // gibt dauer-Attribut
+    public int getDauer() {
+        return dauer;
+    }
+
+    // setzt dauer-Attribut
+    public void setDauer(int dauer) {
+        this.dauer = dauer;
+    }
+
+    // gibt die Zutatenliste
+    public List<Zutat> getZutaten() {
+        return zutaten;
+    }
+
+    // setzt Zutatenliste
+    public void setZutaten(List<Zutat> zutaten) {
+        this.zutaten = zutaten;
+    }
+
+    // gibt die Anweisungs-Liste
+    public List<String> getAnweisungen() {
+        return anweisungen;
+    }
+
+    // setzt Anweisungsliste
+    public void setAnweisungen(List<String> anweisungen) {
+        this.anweisungen = anweisungen;
+    }
 }

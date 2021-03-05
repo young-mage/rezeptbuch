@@ -51,8 +51,8 @@ public class RezeptbuchTest {
         Rezeptbuch testRezBuch = new Rezeptbuch(new ArrayList<Rezept>());
         testRezBuch.rezeptHinzufuegen(rezept1, 0);
         testRezBuch.rezeptHinzufuegen(rezept2, 0);
-        assertEquals(2, testRezBuch.rezepte.size());
-        assertEquals(rezept2, testRezBuch.rezepte.get(0));
+        assertEquals(2, testRezBuch.getRezepte().size());
+        assertEquals(rezept2, testRezBuch.getRezepte().get(0));
     }
 
     @Test public void testRezeptEntfernen(){
@@ -64,6 +64,6 @@ public class RezeptbuchTest {
         Rezeptbuch testRezBuch = new Rezeptbuch(rezList);
         testRezBuch.rezeptEntfernen(rezept1);
         testRezBuch.rezeptEntfernen(0);
-        assertEquals(0, testRezBuch.rezepte.size());
+        assertEquals(0, testRezBuch.getRezepte().size());
     }
 }

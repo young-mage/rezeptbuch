@@ -3,7 +3,7 @@ import java.util.List;
 
 public class Rezeptbuch {
 
-    List<Rezept> rezepte;
+    private List<Rezept> rezepte;
 
 	/**
 	 * Default-Konstruktor mit leerer Rezeptliste
@@ -65,7 +65,19 @@ public class Rezeptbuch {
     	return rezeptbuch;
     }
 
-    public static void main(String[] args) {
+    /* Getter und Setter */
+
+	// Gibt Rezeptliste
+	public List<Rezept> getRezepte() {
+		return rezepte;
+	}
+
+	// Setzt Rezeptliste
+	public void setRezepte(List<Rezept> rezepte) {
+		this.rezepte = rezepte;
+	}
+
+	public static void main(String[] args) {
 
     	Zutat wasser = new Zutat("Wasser",100);
     	Zutat nudeln = new Zutat("Nudeln",200);
