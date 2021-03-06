@@ -1,3 +1,4 @@
+import javafx.geometry.Insets;
 import javafx.scene.control.Button;
 import javafx.scene.layout.FlowPane;
 
@@ -12,5 +13,7 @@ public class ButtonSteuerMenu extends FlowPane {
         saveBtn = new Button("Speichern");
         deleteBtn = new Button("Löschen");
         this.getChildren().addAll(newBtn, saveBtn, deleteBtn);
+        this.setPadding(new Insets(10));
+        this.setHgap(5);
     }
 }

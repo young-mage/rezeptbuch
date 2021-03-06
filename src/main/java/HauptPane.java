@@ -2,10 +2,11 @@ import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
 
 public class HauptPane extends BorderPane {
 
-    ScrollPane rezeptScroll;
+    BorderPane rezeptScroll;
     FlowPane buttonPane;
     GridPane inputGrid;
 
