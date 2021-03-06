@@ -1,3 +1,5 @@
+import javafx.beans.property.SimpleStringProperty;
+
 import java.util.List;
 
 public class Rezept {
