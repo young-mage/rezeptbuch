@@ -1,8 +1,9 @@
 package Datenstrukturen;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class Rezept {
+public class Rezept implements Serializable {
     private String name;
     private int dauer;
     private List<Zutat> zutaten;

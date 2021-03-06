@@ -1,6 +1,8 @@
 package Datenstrukturen;
 
-public class Zutat {
+import java.io.Serializable;
+
+public class Zutat implements Serializable {
     private String name;
     private int menge;
 
