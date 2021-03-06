@@ -1,4 +1,6 @@
 import javafx.application.Application;
+import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
@@ -46,7 +48,7 @@ public class Main extends Application {
         return new Rezept("Butterbrot",2,zutaten,anweisungen);
     }
     public Rezeptbuch testRezBuch(){
-        ArrayList<Rezept> rezepte = new ArrayList<Rezept>();
+        ArrayList<Rezept> rezepte = new ArrayList<>();
         for(int i = 0; i < 20; i++) {
             rezepte.add(testRezept());
         }

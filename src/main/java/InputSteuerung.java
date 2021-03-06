@@ -7,23 +7,31 @@ import javafx.scene.layout.GridPane;
 
 public class InputSteuerung extends GridPane {
 
-    Label nameLbl;
-    Label zutatenLbl;
-    TextField nameField;
-    TextArea zutatenArea;
+    private Label nameLbl;
+    private Label zutatenLbl;
+    private TextField zutatenField;
+    private TextArea anweisungsArea;
 
     public InputSteuerung() {
         nameLbl = new Label("Name:");
         zutatenLbl = new Label("Zutaten:");
-        nameField = new TextField();
-        zutatenArea = new TextArea();
+        zutatenField = new TextField();
+        anweisungsArea = new TextArea();
         this.add(nameLbl, 0, 0);
         this.add(zutatenLbl, 0, 1);
-        this.add(nameField, 1, 0);
-        this.add(zutatenArea, 1, 1);
+        this.add(zutatenField, 1, 0);
+        this.add(anweisungsArea, 1, 1);
         this.setPadding(new Insets(10, 10, 10, 10));
         this.getColumnConstraints().add(new ColumnConstraints(70));
         this.getColumnConstraints().add(new ColumnConstraints(310));
         this.setVgap(5);
+    }
+
+    public TextField getZutatenField() {
+        return zutatenField;
+    }
+
+    public TextArea getAnweisungsArea() {
+        return anweisungsArea;
     }
 }

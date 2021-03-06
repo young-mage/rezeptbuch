@@ -1,14 +1,13 @@
-import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.FlowPane;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.HBox;
 
 public class HauptPane extends BorderPane {
 
-    BorderPane rezeptScroll;
-    FlowPane buttonPane;
-    GridPane inputGrid;
+    RezeptScrollListe rezeptScroll;
+    ButtonSteuerMenu buttonPane;
+    InputSteuerung inputGrid;
+
+    ButtonClickManager cm;
+    TableClickManager tcm;
 
     public HauptPane(Rezeptbuch rb){
         this.rezeptScroll = new RezeptScrollListe(rb);
@@ -17,5 +16,10 @@ public class HauptPane extends BorderPane {
         this.setBottom(buttonPane);
         this.setCenter(inputGrid);
         this.setTop(rezeptScroll);
+
+        cm = new ButtonClickManager(buttonPane.getNewBtn(), buttonPane.getSaveBtn(), buttonPane.getDeleteBtn(), inputGrid.getZutatenField(), inputGrid.getAnweisungsArea());
+        tcm = new TableClickManager(rezeptScroll.getTable());
+        buttonPane.setListener(cm);
+        rezeptScroll.setListener(tcm);
     }
 }
