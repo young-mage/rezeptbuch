@@ -1,3 +1,5 @@
+package Datenstrukturen;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,7 +15,7 @@ public class Rezeptbuch {
 	}
 
 	/**
-	 * Rezeptbuch-Konstruktor mit gegebener Rezeptliste
+	 * Datenstrukturen.Rezeptbuch-Konstruktor mit gegebener Rezeptliste
 	 * @param rezepte Liste der Rezepte
 	 */
 	public Rezeptbuch(List<Rezept> rezepte) {
@@ -21,16 +23,16 @@ public class Rezeptbuch {
     }
 
 	/**
-	 * Füge Rezept zum Rezeptbuch hinzu
-	 * @param rezept das hinzuzufügende Rezept
+	 * Füge Datenstrukturen.Rezept zum Datenstrukturen.Rezeptbuch hinzu
+	 * @param rezept das hinzuzufügende Datenstrukturen.Rezept
 	 */
 	public void rezeptHinzufuegen(Rezept rezept) {
     	this.rezepte.add(rezept);
     }
 
 	/**
-	 * Füge Rezept an bestimmter Position zum Rezeptbuch hinzu
-	 * @param rezept das hinzuzufügende Rezept
+	 * Füge Datenstrukturen.Rezept an bestimmter Position zum Datenstrukturen.Rezeptbuch hinzu
+	 * @param rezept das hinzuzufügende Datenstrukturen.Rezept
 	 * @param position der Index des hinzuzufügenden Rezepts
 	 */
 	public void rezeptHinzufuegen(Rezept rezept, int position) {
@@ -38,15 +40,15 @@ public class Rezeptbuch {
 	}
 
 	/**
-	 * Entferne gegebenes Rezept aus dem Rezeptbuch
-	 * @param rezept Rezept, das zu entfernen ist
+	 * Entferne gegebenes Datenstrukturen.Rezept aus dem Datenstrukturen.Rezeptbuch
+	 * @param rezept Datenstrukturen.Rezept, das zu entfernen ist
 	 */
     public void rezeptEntfernen(Rezept rezept) {
     	this.rezepte.remove(rezept);
     }
 
 	/**
-	 * Entferne Rezept mit gegebenem Index aus dem Rezeptbuch
+	 * Entferne Datenstrukturen.Rezept mit gegebenem Index aus dem Datenstrukturen.Rezeptbuch
 	 * @param position Index der Position, die zu entfernen ist
 	 */
 	public void rezeptEntfernen(int position) {
@@ -54,11 +56,11 @@ public class Rezeptbuch {
 	}
 
 	/**
-	 * Konvertiere das Rezept zu einem menschlich lesbaren String
-	 * @return das konvertierte Rezeptbuch als String
+	 * Konvertiere das Datenstrukturen.Rezept zu einem menschlich lesbaren String
+	 * @return das konvertierte Datenstrukturen.Rezeptbuch als String
 	 */
     public String toString() {
-    	String rezeptbuch = "Rezeptbuch: \n";
+    	String rezeptbuch = "Datenstrukturen.Rezeptbuch: \n";
     	for (Rezept rezept : rezepte) {
     		rezeptbuch = rezeptbuch + rezept.toString() + "\n";
     	}

@@ -1,11 +1,13 @@
+package Datenstrukturen;
+
 public class Zutat {
     private String name;
     private int menge;
 
     /**
      * Konstruktor der Klasse
-     * @param zutatenname Name der Zutat
-     * @param zutatenmenge Menge der Zutat
+     * @param zutatenname Name der Datenstrukturen.Zutat
+     * @param zutatenmenge Menge der Datenstrukturen.Zutat
      */
     public Zutat(String zutatenname, int zutatenmenge) {
         this.name = zutatenname;
@@ -13,8 +15,8 @@ public class Zutat {
     }
 
     /**
-     * Gibt Zutat als melschlich lesbaren String zurück
-     * @return Der Zutat-Text
+     * Gibt Datenstrukturen.Zutat als melschlich lesbaren String zurück
+     * @return Der Datenstrukturen.Zutat-Text
      */
     public String toString() {
         return menge + " " + name;

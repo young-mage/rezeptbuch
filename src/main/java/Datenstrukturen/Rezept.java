@@ -1,4 +1,4 @@
-import javafx.beans.property.SimpleStringProperty;
+package Datenstrukturen;
 
 import java.util.List;
 
@@ -23,32 +23,32 @@ public class Rezept {
     }
 
     /**
-     * Füge Zutat zur Zutatenliste hinzu
-     * @param zutat die hinzuzufügende Zutat
+     * Füge Datenstrukturen.Zutat zur Zutatenliste hinzu
+     * @param zutat die hinzuzufügende Datenstrukturen.Zutat
      */
     public void zutatHinzufuegen(Zutat zutat) {
         this.zutaten.add(zutat);
     }
 
     /**
-     * Füge Zutat an bestimmter Stelle hinzu
-     * @param zutat die hinzuzufügende Zutat
-     * @param position der Index der neuen Zutat
+     * Füge Datenstrukturen.Zutat an bestimmter Stelle hinzu
+     * @param zutat die hinzuzufügende Datenstrukturen.Zutat
+     * @param position der Index der neuen Datenstrukturen.Zutat
      */
     public void zutatHinzufuegen(Zutat zutat, int position) {
         this.zutaten.add(position, zutat);
     }
 
     /**
-     * Entferne Zutat aus dem Rezept
-     * @param position der Index der entfernten Zutat
+     * Entferne Datenstrukturen.Zutat aus dem Datenstrukturen.Rezept
+     * @param position der Index der entfernten Datenstrukturen.Zutat
      */
     public void zutatEntfernen(int position) {
         this.zutaten.remove(position);
     }
 
     /**
-     * Füge neue Anweisung zum Rezept hinzu
+     * Füge neue Anweisung zum Datenstrukturen.Rezept hinzu
      * @param anweisung Text der neuen Anweisung
      */
     public void anweisungHinzufuegen(String anweisung) {
@@ -56,7 +56,7 @@ public class Rezept {
     }
 
     /**
-     * Füge Anweisung an bestimmter Stelle zum Rezept hinzu
+     * Füge Anweisung an bestimmter Stelle zum Datenstrukturen.Rezept hinzu
      * @param anweisung Text der neuen Anweisung
      * @param position Index der Anweisung
      */
@@ -73,7 +73,7 @@ public class Rezept {
     }
 
     /**
-     * Konvertiere Rezept zu einem menschlich lesbaren String
+     * Konvertiere Datenstrukturen.Rezept zu einem menschlich lesbaren String
      * @return Der Rezepttext
      */
     public String toString() {

@@ -1,3 +1,8 @@
+package GUIElemente;
+
+import Datenstrukturen.Rezept;
+import Datenstrukturen.Rezeptbuch;
+import EventManagement.TableClickManager;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.control.*;
@@ -7,16 +12,18 @@ import javafx.scene.layout.BorderPane;
 
 public class RezeptScrollListe extends BorderPane {
 
+    // Die Attribute sind nur da, um Pointer der benötigten Datenstrukturen und GUI-Elemente zu speichern
     private TableView<Rezept> table;
     private final ObservableList<Rezept> data;
-    TableViewSelectionModel selectionModel;
-    ObservableList<Rezept> selectedItems;
+
+    private TableViewSelectionModel selectionModel;
+    private ObservableList<Rezept> selectedItems;
 
     private Rezeptbuch rezeptbuch;
     public RezeptScrollListe(Rezeptbuch rezeptbuch){
         this.rezeptbuch = rezeptbuch;
 
-        data = FXCollections.observableArrayList(rezeptbuch.getRezepte());
+        data = (ObservableList<Rezept>) rezeptbuch.getRezepte(); // Cast möglich, da Rezeptliste bereits eine ObservableList ist
 
         table = new TableView<>();
         TableColumn recipeCol = new TableColumn("Rezepte");
@@ -40,5 +47,9 @@ public class RezeptScrollListe extends BorderPane {
 
     public TableView<Rezept> getTable() {
         return table;
+    }
+
+    public TableViewSelectionModel getSelectionModel() {
+        return selectionModel;
     }
 }
