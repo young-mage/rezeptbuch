@@ -23,7 +23,7 @@ public class Rezept {
     }
 
     /**
-     * Füge Datenstrukturen.Zutat zur Zutatenliste hinzu
+     * Füge Zutat zur Zutatenliste hinzu
      * @param zutat die hinzuzufügende Datenstrukturen.Zutat
      */
     public void zutatHinzufuegen(Zutat zutat) {
@@ -31,7 +31,7 @@ public class Rezept {
     }
 
     /**
-     * Füge Datenstrukturen.Zutat an bestimmter Stelle hinzu
+     * Füge Zutat an bestimmter Stelle hinzu
      * @param zutat die hinzuzufügende Datenstrukturen.Zutat
      * @param position der Index der neuen Datenstrukturen.Zutat
      */
@@ -40,15 +40,15 @@ public class Rezept {
     }
 
     /**
-     * Entferne Datenstrukturen.Zutat aus dem Datenstrukturen.Rezept
-     * @param position der Index der entfernten Datenstrukturen.Zutat
+     * Entferne Zutat aus dem Rezept
+     * @param position der Index der entfernten Zutat
      */
     public void zutatEntfernen(int position) {
         this.zutaten.remove(position);
     }
 
     /**
-     * Füge neue Anweisung zum Datenstrukturen.Rezept hinzu
+     * Füge neue Anweisung zum Rezept hinzu
      * @param anweisung Text der neuen Anweisung
      */
     public void anweisungHinzufuegen(String anweisung) {
@@ -56,7 +56,7 @@ public class Rezept {
     }
 
     /**
-     * Füge Anweisung an bestimmter Stelle zum Datenstrukturen.Rezept hinzu
+     * Füge Anweisung an bestimmter Stelle zum Rezept hinzu
      * @param anweisung Text der neuen Anweisung
      * @param position Index der Anweisung
      */
@@ -73,7 +73,7 @@ public class Rezept {
     }
 
     /**
-     * Konvertiere Datenstrukturen.Rezept zu einem menschlich lesbaren String
+     * Konvertiere Rezept zu einem menschlich lesbaren String
      * @return Der Rezepttext
      */
     public String toString() {
@@ -83,6 +83,10 @@ public class Rezept {
         return rezept;
     }
 
+    /**
+     * Konvertiere Liste der Zutaten zu einem menschlich lesbaren String
+     * @return die Zutatenliste als String
+     */
     public String zutatenToString() {
         String zutatenStr = "";
         for (Zutat zutat : zutaten) {
@@ -91,6 +95,10 @@ public class Rezept {
         return zutatenStr;
     }
 
+    /**
+     * Konvertiere Liste der Anweisungen zu einem menschlich lesbaren String
+     * @return die Liste der Anweisungen als String
+     */
     public String anweisungenToString() {
         String anweisungenStr = "";
         for (String anweisung : anweisungen) {

@@ -5,12 +5,18 @@ import javafx.geometry.Insets;
 import javafx.scene.control.Button;
 import javafx.scene.layout.FlowPane;
 
+/**
+ * Das untere Panel mit Buttons für das neu Erstellen, Speichern
+ * und Löschen von Rezeptbucheinträgen
+ */
 public class ButtonSteuerMenu extends FlowPane {
 
+    // Die drei child-Buttons des Panels
     private Button newBtn;
     private Button saveBtn;
     private Button deleteBtn;
 
+    // Standard-Konstruktor
     public ButtonSteuerMenu(){
         newBtn = new Button("Neu");
         saveBtn = new Button("Speichern");
@@ -20,12 +26,18 @@ public class ButtonSteuerMenu extends FlowPane {
         this.setHgap(5);
     }
 
+    /**
+     * Nimmt einen ButtonClickManager entgegen (Klasse, welche Clicks auf die
+     * Buttons verarbeitet) und fügt diesen den Buttons als Listener-Klasse hinzu
+     * @param clickManager der an die Buttons übergebene ClickManager
+     */
     public void setListener(ButtonClickManager clickManager){
         newBtn.setOnAction(clickManager);
         saveBtn.setOnAction(clickManager);
         deleteBtn.setOnAction(clickManager);
     }
 
+    // Getter-Methoden der Butons
     public Button getNewBtn() {
         return newBtn;
     }

@@ -6,6 +6,10 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.*;
 
+/**
+ * Diese Klasse stellt das mittlere Gitter dar und beinhaltet alle Textfelder,
+ * welche zur Eingabe von Daten notwendig sind
+ */
 public class InputSteuerung extends GridPane {
 
     private HBox nameDurationPane;
@@ -17,6 +21,7 @@ public class InputSteuerung extends GridPane {
     private TextArea zutatenArea;
     private TextArea anweisungsArea;
 
+    // Konstruktor, welcher alle Unterelemente richtig anordnet
     public InputSteuerung() {
         nameLbl = new Label("Name / Dauer:");
         zutatenLbl = new Label("Zutaten:");
@@ -40,6 +45,7 @@ public class InputSteuerung extends GridPane {
         this.setVgap(5);
     }
 
+    // Getter-Methoden
     public TextField getNameField() {
         return nameField;
     }

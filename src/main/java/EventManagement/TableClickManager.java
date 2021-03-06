@@ -13,6 +13,9 @@ import javafx.scene.input.MouseEvent;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
+/**
+ * Diese Klasse nimmt verarbeitet Clicks auf die Tabelleneinträge der GUI.
+ */
 public class TableClickManager implements ListChangeListener<Rezept> {
 
     // Die Attribute sind nur da, um Pointer der benötigten Datenstrukturen und GUI-Elemente zu speichern
@@ -22,8 +25,7 @@ public class TableClickManager implements ListChangeListener<Rezept> {
     private TextArea zutatenArea;
     private TextArea anweisungsArea;
 
-
-
+    // Standard-Konstruktor. Nummt Pointer der verwalteten GUI-Klassen entgegen.
     public TableClickManager(TableView tableView, TextField nameField, TextField durationField, TextArea zutatenArea, TextArea anweisungsArea) {
         this.tableView = tableView;
         this.nameField = nameField;
@@ -32,11 +34,14 @@ public class TableClickManager implements ListChangeListener<Rezept> {
         this.anweisungsArea = anweisungsArea;
     }
 
+    // Methode, welche beim Wechseln der Auswahl (in unserem Programm: bei jedem Click auf einen Tabelleneintrag) ausgeführt wird
     @Override
     public void onChanged(Change<? extends Rezept> c) {
-        Rezept rezeptWahl = c.getList().get(0);
+        Rezept rezeptWahl = c.getList().get(0); // null, falls kein Eintrag ausgewählt ist
         System.out.println(rezeptWahl != null);
         HauptPane.rezeptWahl = rezeptWahl;
+
+        // Füllt Textfelder mit den Daten des ausgewählten Eintrags
         nameField.setText(rezeptWahl.getName());
         durationField.setText(Integer.toString(rezeptWahl.getDauer()));
         zutatenArea.setText(rezeptWahl.zutatenToString());
