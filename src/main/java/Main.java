@@ -49,9 +49,7 @@ public class Main extends Application {
     }
     public Rezeptbuch testRezBuch(){
         ArrayList<Rezept> rezepte = new ArrayList<>();
-        for(int i = 0; i < 20; i++) {
-            rezepte.add(testRezept());
-        }
+        rezepte.add(testRezept());
         return new Rezeptbuch(rezepte);
     }
 

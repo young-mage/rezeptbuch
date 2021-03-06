@@ -17,8 +17,8 @@ public class HauptPane extends BorderPane {
         this.setCenter(inputGrid);
         this.setTop(rezeptScroll);
 
-        cm = new ButtonClickManager(buttonPane.getNewBtn(), buttonPane.getSaveBtn(), buttonPane.getDeleteBtn(), inputGrid.getZutatenField(), inputGrid.getAnweisungsArea());
-        tcm = new TableClickManager(rezeptScroll.getTable());
+        cm = new ButtonClickManager(buttonPane.getNewBtn(), buttonPane.getSaveBtn(), buttonPane.getDeleteBtn(), inputGrid.getNameField(), inputGrid.getAnweisungsArea());
+        tcm = new TableClickManager(rezeptScroll.getTable(), inputGrid.getNameField(), inputGrid.getZutatenArea(), inputGrid.getAnweisungsArea());
         buttonPane.setListener(cm);
         rezeptScroll.setListener(tcm);
     }

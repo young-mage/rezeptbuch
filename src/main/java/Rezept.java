@@ -78,15 +78,25 @@ public class Rezept {
      */
     public String toString() {
         String rezept = "Name: " + name + "\n" + "Dauer: " + dauer + "\n";
-        rezept = rezept + "Zutaten: \n";
-        for (Zutat zutat : zutaten) {
-            rezept = rezept + zutat.toString() + "\n";
-        }
-        rezept = rezept + "Anweisungen: \n";
-        for (String anweisung : anweisungen) {
-            rezept = rezept + anweisung + "\n";
-        }
+        rezept = rezept + "Zutaten: \n" + zutatenToString();
+        rezept = rezept + "Anweisungen: \n" + anweisungenToString();
         return rezept;
+    }
+
+    public String zutatenToString() {
+        String zutatenStr = "";
+        for (Zutat zutat : zutaten) {
+            zutatenStr = zutatenStr + zutat.toString() + "\n";
+        }
+        return zutatenStr;
+    }
+
+    public String anweisungenToString() {
+        String anweisungenStr = "";
+        for (String anweisung : anweisungen) {
+            anweisungenStr = anweisungenStr + anweisung + "\n";
+        }
+        return anweisungenStr;
     }
 
     /* Getter und Setter */

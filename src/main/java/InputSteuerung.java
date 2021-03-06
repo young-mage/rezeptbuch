@@ -9,26 +9,36 @@ public class InputSteuerung extends GridPane {
 
     private Label nameLbl;
     private Label zutatenLbl;
-    private TextField zutatenField;
+    private Label anweisungsLbl;
+    private TextField nameField;
+    private TextArea zutatenArea;
     private TextArea anweisungsArea;
 
     public InputSteuerung() {
         nameLbl = new Label("Name:");
         zutatenLbl = new Label("Zutaten:");
-        zutatenField = new TextField();
+        anweisungsLbl = new Label("Anweisungen:");
+        nameField = new TextField();
+        zutatenArea = new TextArea();
         anweisungsArea = new TextArea();
         this.add(nameLbl, 0, 0);
         this.add(zutatenLbl, 0, 1);
-        this.add(zutatenField, 1, 0);
-        this.add(anweisungsArea, 1, 1);
+        this.add(anweisungsLbl, 0, 2);
+        this.add(nameField, 1, 0);
+        this.add(zutatenArea, 1, 1);
+        this.add(anweisungsArea, 1, 2);
         this.setPadding(new Insets(10, 10, 10, 10));
-        this.getColumnConstraints().add(new ColumnConstraints(70));
-        this.getColumnConstraints().add(new ColumnConstraints(310));
+        this.getColumnConstraints().add(new ColumnConstraints(110));
+        this.getColumnConstraints().add(new ColumnConstraints(270));
         this.setVgap(5);
     }
 
-    public TextField getZutatenField() {
-        return zutatenField;
+    public TextField getNameField() {
+        return nameField;
+    }
+
+    public TextArea getZutatenArea() {
+        return zutatenArea;
     }
 
     public TextArea getAnweisungsArea() {
