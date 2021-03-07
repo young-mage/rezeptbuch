@@ -38,7 +38,6 @@ public class TableClickManager implements ListChangeListener<Rezept> {
     @Override
     public void onChanged(Change<? extends Rezept> c) {
         Rezept rezeptWahl = c.getList().get(0); // null, falls kein Eintrag ausgewählt ist
-        System.out.println(rezeptWahl != null);
         HauptPane.rezeptWahl = rezeptWahl;
 
         // Füllt Textfelder mit den Daten des ausgewählten Eintrags

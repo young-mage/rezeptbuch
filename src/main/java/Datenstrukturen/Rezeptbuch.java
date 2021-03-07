@@ -56,6 +56,10 @@ public class Rezeptbuch {
 		this.rezepte.remove(position);
 	}
 
+	public void rezeptSetzen(Rezept altesRezept, Rezept neuesRezept) {
+		rezepte.set(rezepte.indexOf(altesRezept), neuesRezept);
+	}
+
 	/**
 	 * Konvertiere das Rezept zu einem menschlich lesbaren String
 	 * @return das konvertierte Rezeptbuch als String

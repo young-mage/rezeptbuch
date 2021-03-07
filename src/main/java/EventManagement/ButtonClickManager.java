@@ -66,11 +66,14 @@ public class ButtonClickManager implements EventHandler<ActionEvent>{
         // Falls der "Speichern"-Button geclickt wird und alle Felder richtig ausgefüllt sind, füge das neue Rezept hinzu
         if(event.getSource() == saveBtn && fieldsFilledCorrectly()){
             Rezept newRecipe = compileRecipe();
-            rezeptbuch.rezeptHinzufuegen(newRecipe);
+            if(HauptPane.rezeptWahl == null) { // Falls kein Element ausgewählt ist, speichere neues Rezept
+                rezeptbuch.rezeptHinzufuegen(newRecipe);
+            } else { // Falls Rezept ausgwählt ist, speichere die Änderungen
+                rezeptbuch.rezeptSetzen(HauptPane.rezeptWahl, newRecipe);
+            }
             clearTextFields();
             selectionModel.clearSelection();
             table.refresh();
-            System.out.println(rezeptbuch.getRezepte().size());
         }
 
         // Falls ein Element ausgewählt ist, lösche es aus der Liste
@@ -110,6 +113,27 @@ public class ButtonClickManager implements EventHandler<ActionEvent>{
         } catch (NumberFormatException e) {
             return false;
         }
+        return ingredientsFilledCorrectly();
+    }
+
+    /**
+     * Prüft, ob die Zutatenliste richtig Formattiert ist:
+     * Jede Zutat muss in neuer Zeile Stehen, in der Form [MENGE] [ZUTAT]
+     * @return Boolean, ob Zutatenliste richtig ausgefüllt ist.
+     */
+    public boolean ingredientsFilledCorrectly() {
+        String[] zutatenEingabe = zutatenArea.getText().split("\n"); // Lese eingegebene Zeilen in Array ein
+        for (String z : zutatenEingabe) {
+            String[] zeile = z.split(" ");
+            if (zeile.length < 2) {
+                return false;
+            }
+            try {
+                Integer.parseInt(zeile[0]);
+            } catch (NumberFormatException e) {
+                return false;
+            }
+        }
         return true;
     }
 
@@ -119,22 +143,32 @@ public class ButtonClickManager implements EventHandler<ActionEvent>{
      * @return das neu erstellte Rezept
      */
     public Rezept compileRecipe() {
+        // Definition der für das neue Rezept notwendigen Variablen
         String name = nameField.getText();
         int dauer = Integer.parseInt(durationField.getText());
-        String[] zutaten = zutatenArea.getText().split("\n");
-        String[] anweisungen = anweisungsArea.getText().split("\n");
-
         ArrayList<Zutat> zutatenListe = new ArrayList<>();
         ArrayList<String> anweisungsListe = new ArrayList<>();
 
+        // Spalte die Eingaben nach Zeilen auf
+        String[] zutaten = zutatenArea.getText().split("\n");
+        String[] anweisungen = anweisungsArea.getText().split("\n");
+
+        // Liest Zutatenliste ein und betreibt Parsing, um Mengen und Zutatente zu exrtahieren
         for (String zutatStr : zutaten) {
-            zutatenListe.add(new Zutat(zutatStr, 1));
+            String[] zeile = zutatStr.split(" ");
+            String zutatText = "";
+            for(int i = 1; i < zeile.length; i++) {
+                zutatText += zeile[i] + " ";
+            }
+            zutatenListe.add(new Zutat(zutatText, Integer.parseInt(zeile[0])));
         }
 
+        // Liest Anweisungsliste ein und speichert diese in ArrayList
         for (String anweisungStr : anweisungen) {
             anweisungsListe.add(anweisungStr);
         }
 
+        // Erstelle neues Rezept mit den oben eingelesenen Informationen
         return new Rezept(name, dauer, zutatenListe, anweisungsListe);
     }
 }
