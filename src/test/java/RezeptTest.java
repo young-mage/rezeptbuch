@@ -20,58 +20,48 @@ public class RezeptTest {
         var testRezept = new Rezept("", 0, testZutListe, testAnweisungen);
         assertNotNull(testRezept);
     }
-    /* TESTS ANPASSEN
-    @Test public void testZutatHinzufuegen(){
-        ArrayList<Zutat> testZutListe = new ArrayList<Zutat>();
-        var testRezept = new Rezept("", 0, testZutListe, null);
-        testRezept.zutatHinzufuegen(testZutat1, 0);
-        assertEquals(1, testRezept.getZutaten().size());
 
-        ArrayList<Zutat> sollListe = new ArrayList<Zutat>();
-        sollListe.add(testZutat1);
-        assertEquals(testRezept.getZutaten(), sollListe);
+    @Test public void testZutatHinzufuegen(){
+        var testRezept = new Rezept("", 0, new ArrayList<Zutat>(), null);
+        testRezept.zutatHinzufuegen(testZutat1);
+        assertEquals(1, testRezept.getZutaten().size());
+        assert(testRezept.getZutaten().contains(testZutat1));
     }
 
     @Test public void testZutatEntfernen(){
-        ArrayList<Zutat> testZutListe = new ArrayList<Zutat>();
-        var testRezept = new Rezept("", 0, testZutListe, null);
+        var testRezept = new Rezept("", 0, new ArrayList<Zutat>(), null);
         testRezept.zutatHinzufuegen(testZutat1);
         testRezept.zutatHinzufuegen(testZutat2);
-        testRezept.zutatEntfernen(1);
+        testRezept.zutatEntfernen(testZutat1);
+        assert(!testRezept.getZutaten().contains(testZutat1));
         assertEquals(testRezept.getZutaten().size(), 1);
-        assertEquals(testRezept.getZutaten().get(0), testZutat1);
+        assertEquals(testRezept.getZutaten().get(0), testZutat2);
     }
 
     @Test public void testAnweisungHinzufuegen(){
-        ArrayList<String> testAnwListe = new ArrayList<String>();
-        var testRezept = new Rezept("", 0, null, testAnwListe);
-        testRezept.anweisungHinzufuegen("ANW0", 0);
+        var testRezept = new Rezept("", 0, null, new ArrayList<String>());
+        testRezept.anweisungHinzufuegen("ANW0");
         assertEquals(1, testRezept.getAnweisungen().size());
-
-        ArrayList<String> sollListe = new ArrayList<String>();
-        sollListe.add("ANW0");
-        assertEquals(testRezept.getAnweisungen(), sollListe);
+        assert(testRezept.getAnweisungen().contains("ANW0"));
     }
 
     @Test public void testAnweisungEntfernen(){
-        ArrayList<String> testAnwListe = new ArrayList<String>();
-        var testRezept = new Rezept("", 0, null, testAnwListe);
+        var testRezept = new Rezept("", 0, null, new ArrayList<String>());
         testRezept.anweisungHinzufuegen("ANW0");
         testRezept.anweisungHinzufuegen("ANW1");
-        testRezept.anweisungEntfernen(1);
+        testRezept.anweisungEntfernen("ANW0");
+        assert(!testRezept.getAnweisungen().contains("ANW0"));
         assertEquals(testRezept.getAnweisungen().size(), 1);
-        assertEquals(testRezept.getAnweisungen().get(0), "ANW0");
+        assertEquals(testRezept.getAnweisungen().get(0), "ANW1");
     }
 
     @Test public void stringTest(){
-        ArrayList<Zutat> testZutListe = new ArrayList<Zutat>();
-        ArrayList<String> testAnwListe = new ArrayList<String>();
-        var testRezept = new Rezept("testrezept", 0, testZutListe, testAnwListe);
+        var testRezept = new Rezept("testrezept", 0, new ArrayList<Zutat>(), new ArrayList<String>());
         testRezept.anweisungHinzufuegen("ANW0");
         testRezept.zutatHinzufuegen(testZutat1);
         testRezept.zutatHinzufuegen(testZutat2);
         String rezeptStr = testRezept.toString();
         String erwarteterStr = "Name: testrezept\nDauer: 0\nZutaten: \n10 Milch\n5 Brot\nAnweisungen: \nANW0\n";
         assertEquals(erwarteterStr, rezeptStr);
-    }*/
+    }
 }
