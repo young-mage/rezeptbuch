@@ -9,7 +9,7 @@ import javafx.scene.layout.FlowPane;
  * Das untere Panel mit Buttons für das neu Erstellen, Speichern
  * und Löschen von Rezeptbucheinträgen
  */
-public class ButtonSteuerMenu extends FlowPane {
+public class ButtonMenu extends FlowPane {
 
     // Die drei child-Buttons des Panels
     private final Button newBtn;
@@ -17,7 +17,7 @@ public class ButtonSteuerMenu extends FlowPane {
     private final Button deleteBtn;
 
     // Standard-Konstruktor
-    public ButtonSteuerMenu(){
+    public ButtonMenu(){
         newBtn = new Button("Neu");
         saveBtn = new Button("Speichern");
         deleteBtn = new Button("Löschen");

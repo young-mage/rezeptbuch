@@ -71,31 +71,4 @@ public class Rezeptbuch {
 	public void setRezepte(List<Rezept> rezepte) {
 		this.rezepte = rezepte;
 	}
-
-	public static void main(String[] args) {
-
-    	Zutat wasser = new Zutat("Wasser",100);
-    	Zutat nudeln = new Zutat("Nudeln",200);
-    	List<Zutat> zutaten = new ArrayList<Zutat>();
-    	zutaten.add(wasser);
-    	zutaten.add(nudeln);
-
-    	String anweisung1 = "Nudeln in kochendes Wasser geben";
-    	String anweisung2 = "10 Minuten kochen";
-    	String anweisung3 = "Wasser abgiessen";
-    	List<String> anweisungen = new ArrayList<String>();
-    	anweisungen.add(anweisung1);
-    	anweisungen.add(anweisung2);
-    	anweisungen.add(anweisung3);
-
-    	Rezept rezept = new Rezept("Nudeln",10,zutaten,anweisungen);
-
-    	List<Rezept> rezepte = new ArrayList<Rezept>();
-    	rezepte.add(rezept);
-
-    	Rezeptbuch rezeptbuch = new Rezeptbuch(rezepte);
-
-    	System.out.println(rezeptbuch.toString());
-
-    }
 }

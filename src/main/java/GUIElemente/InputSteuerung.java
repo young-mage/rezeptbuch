@@ -27,9 +27,13 @@ public class InputSteuerung extends GridPane {
         zutatenLbl = new Label("Zutaten:");
         anweisungsLbl = new Label("Anweisungen:");
         nameField = new TextField();
+        nameField.setPromptText("Rezeptname");
         durationField = new TextField();
+        durationField.setPromptText("Dauer");
         zutatenArea = new TextArea();
+        zutatenArea.setPromptText("Zutaten");
         anweisungsArea = new TextArea();
+        anweisungsArea.setPromptText("Anweisungen");
         nameDurationPane = new HBox();
         nameDurationPane.setSpacing(5);
         nameDurationPane.getChildren().addAll(nameField, durationField);

@@ -11,20 +11,20 @@ import javafx.stage.WindowEvent;
  */
 public class Main extends Application {
 
-    Rezeptbuch rb;
+    Rezeptbuch rezeptbuch;
 
     @Override
     public void start(Stage stage) {
 
         // Rezeptbuch wird aktuell mithilfe einer Testklasse konstruiert
-        rb = new SaveManager().load();
+        rezeptbuch = new SaveManager().load();
 
         // Das Root-Element des Programms
-        BorderPane hauptPane = new HauptPane(rb);
+        BorderPane hauptPane = new HauptPane(rezeptbuch);
 
         // Erzeuge das Fenster
         Scene scene = new Scene(hauptPane, 400, 500);
-        stage.setTitle("Rezeptbuch-TestApp");
+        stage.setTitle("Rezeptbuch");
         stage.setScene(scene);
         stage.setOnCloseRequest(e -> onClose(e));
         stage.show();
@@ -35,7 +35,7 @@ public class Main extends Application {
      * @param e das übergebene "Fenster schließen"-Event
      */
     public void onClose(WindowEvent e) {
-        new SaveManager().save(rb);
+        new SaveManager().save(rezeptbuch);
     }
 
     public static void main(String[] args) {

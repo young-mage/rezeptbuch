@@ -19,15 +19,13 @@ import javax.swing.event.ListSelectionListener;
 public class TableClickManager implements ListChangeListener<Rezept> {
 
     // Die Attribute sind nur da, um Pointer der benötigten Datenstrukturen und GUI-Elemente zu speichern
-    private final TableView tableView;
     private final TextField nameField;
     private final TextField durationField;
     private final TextArea zutatenArea;
     private final TextArea anweisungsArea;
 
     // Standard-Konstruktor. Nummt Pointer der verwalteten GUI-Klassen entgegen.
-    public TableClickManager(TableView tableView, TextField nameField, TextField durationField, TextArea zutatenArea, TextArea anweisungsArea) {
-        this.tableView = tableView;
+    public TableClickManager(TextField nameField, TextField durationField, TextArea zutatenArea, TextArea anweisungsArea) {
         this.nameField = nameField;
         this.durationField = durationField;
         this.zutatenArea = zutatenArea;
@@ -37,7 +35,8 @@ public class TableClickManager implements ListChangeListener<Rezept> {
     // Methode, welche beim Wechseln der Auswahl (in unserem Programm: bei jedem Click auf einen Tabelleneintrag) ausgeführt wird
     @Override
     public void onChanged(Change<? extends Rezept> c) {
-        Rezept rezeptWahl = c.getList().get(0); // null, falls kein Eintrag ausgewählt ist
+        if(c.getList().size() == 0) return; // Diese Zeile steht hier nur, weil sonst ständig OutOfBoundsExceptions con JavaFX abgefangen werden
+        Rezept rezeptWahl = c.getList().get(0);
         HauptPane.rezeptWahl = rezeptWahl;
 
         // Füllt Textfelder mit den Daten des ausgewählten Eintrags

@@ -55,7 +55,8 @@ public class RezeptbuchTest {
         testRezBuch.rezeptHinzufuegen(rezept1);
         testRezBuch.rezeptHinzufuegen(rezept2);
         assertEquals(2, testRezBuch.getRezepte().size());
-        assertEquals(rezept2, testRezBuch.getRezepte().get(0));
+        assert(testRezBuch.getRezepte().contains(rezept1));
+        assert(testRezBuch.getRezepte().contains(rezept2));
     }
 
     @Test public void testRezeptEntfernen(){
@@ -68,5 +69,7 @@ public class RezeptbuchTest {
         testRezBuch.rezeptEntfernen(rezept1);
         testRezBuch.rezeptEntfernen(rezept2);
         assertEquals(0, testRezBuch.getRezepte().size());
+        assert(!testRezBuch.getRezepte().contains(rezept1));
+        assert(!testRezBuch.getRezepte().contains(rezept2));
     }
 }

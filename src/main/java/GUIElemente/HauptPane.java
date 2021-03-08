@@ -13,8 +13,8 @@ import javafx.scene.layout.BorderPane;
 public class HauptPane extends BorderPane {
 
     // Die drei 'großen', für die App benötighten Elemente
-    private final RezeptScrollListe rezeptScroll;
-    private final ButtonSteuerMenu buttonPane;
+    private final RezeptTabelle rezeptScroll;
+    private final ButtonMenu buttonPane;
     private final InputSteuerung inputGrid;
 
     // Die beiden Event-Listener für Buttons und Tabelle
@@ -26,8 +26,8 @@ public class HauptPane extends BorderPane {
 
     // Standard-Konstruktor
     public HauptPane(Rezeptbuch rb){
-        this.rezeptScroll = new RezeptScrollListe(rb);
-        this.buttonPane = new ButtonSteuerMenu();
+        this.rezeptScroll = new RezeptTabelle(rb);
+        this.buttonPane = new ButtonMenu();
         this.inputGrid = new InputSteuerung();
         this.setBottom(buttonPane);
         this.setCenter(inputGrid);
@@ -35,7 +35,7 @@ public class HauptPane extends BorderPane {
         rezeptWahl = null;
 
         cm = new ButtonClickManager(rezeptScroll.getSelectionModel(), rb, buttonPane.getNewBtn(), buttonPane.getSaveBtn(), buttonPane.getDeleteBtn(), inputGrid.getNameField(), inputGrid.getDurationField(), inputGrid.getZutatenArea(), inputGrid.getAnweisungsArea(), rezeptScroll.getRezeptTabelle());
-        tcm = new TableClickManager(rezeptScroll.getRezeptTabelle(), inputGrid.getNameField(), inputGrid.getDurationField(), inputGrid.getZutatenArea(), inputGrid.getAnweisungsArea());
+        tcm = new TableClickManager(inputGrid.getNameField(), inputGrid.getDurationField(), inputGrid.getZutatenArea(), inputGrid.getAnweisungsArea());
         buttonPane.setListener(cm); // Füge den Buttons/Tabelle ihre Listener hinzu
         rezeptScroll.setListener(tcm);
     }

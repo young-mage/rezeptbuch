@@ -13,7 +13,7 @@ import javafx.scene.layout.BorderPane;
  * Dieses Element beinhaltet die (scrollbare) Tabelle
  * mit allen Rezeptbucheinträgen
  */
-public class RezeptScrollListe extends BorderPane {
+public class RezeptTabelle extends BorderPane {
 
     // Die Attribute sind nur da, um Pointer der benötigten Datenstrukturen und GUI-Elemente zu speichern
     private final TableView<Rezept> rezeptTabelle;
@@ -24,7 +24,7 @@ public class RezeptScrollListe extends BorderPane {
     private final ObservableList<Rezept> selectedItems;   // Diese Variable speichert das aktuell ausgewählte Objekt (aus formalen Gründen) in einer Liste
 
     // Konstruktor mit Setup der Tabelle, Spalte und Click-Managements
-    public RezeptScrollListe(Rezeptbuch rezeptbuch){
+    public RezeptTabelle(Rezeptbuch rezeptbuch){
         this.rezeptbuch = rezeptbuch;
 
         rezeptListe = (ObservableList<Rezept>) rezeptbuch.getRezepte(); // Cast möglich, da Rezeptliste bereits eine ObservableList ist
