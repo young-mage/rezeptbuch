@@ -1,18 +1,13 @@
 package EventManagement;
 
-import Datenstrukturen.BeispielRezepte;
 import Datenstrukturen.Rezept;
 import Datenstrukturen.Rezeptbuch;
 import Datenstrukturen.Zutat;
 import GUIElemente.HauptPane;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.TableView.*;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
-import javafx.scene.input.MouseEvent;
 
 import java.util.ArrayList;
 
@@ -102,15 +97,18 @@ public class ButtonClickManager implements EventHandler<ActionEvent>{
      * Prüft, um alle Felder richtig ausgefüllt sind, damit das
      * eingegebene Rezept hinzugefügt werden kann. Dafür müssen alle Felder
      * nichtleer sein, und alle erwarteten numerischen Werte tatsächlich Zahlen sein.
+     * Falls ein Fehler auftritt, erzeugt diese Methode eine grafische Fehlermeldung.
      * @return Bool-Wert dafür, ob alle Felder richtig ausgefüllt sind
      */
     public boolean fieldsFilledCorrectly() {
         if(nameField.getText().equals("") || durationField.getText().equals("") || zutatenArea.getText().equals("") || anweisungsArea.getText().equals("")) {
+            showErrorAlert("Eingabefehler", "Alle Felder müssen ausgefüllt sein!");
             return false;
         }
         try {
             Integer.parseInt(durationField.getText());
         } catch (NumberFormatException e) {
+            showErrorAlert("Eingabefehler", "'Dauer' muss eine ganze Zahl sein!");
             return false;
         }
         return ingredientsFilledCorrectly();
@@ -126,11 +124,13 @@ public class ButtonClickManager implements EventHandler<ActionEvent>{
         for (String z : zutatenEingabe) {
             String[] zeile = z.split(" ");
             if (zeile.length < 2) {
+                showErrorAlert("Eingabefehler", "Schreibe jede Zutat in eine neue Zeile.\nEine Zutat muss das Format\n[Menge] [Bezeichnung] haben.");
                 return false;
             }
             try {
                 Integer.parseInt(zeile[0]);
             } catch (NumberFormatException e) {
+                showErrorAlert("Eingabefehler", "Zutatenmenge muss eine ganze Zahl sein");
                 return false;
             }
         }
@@ -170,5 +170,12 @@ public class ButtonClickManager implements EventHandler<ActionEvent>{
 
         // Erstelle neues Rezept mit den oben eingelesenen Informationen
         return new Rezept(name, dauer, zutatenListe, anweisungsListe);
+    }
+
+    void showErrorAlert(String title, String message) {
+        Alert errorAlert = new Alert(Alert.AlertType.ERROR);
+        errorAlert.setHeaderText(title);
+        errorAlert.setContentText(message);
+        errorAlert.showAndWait();
     }
 }
