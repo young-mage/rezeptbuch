@@ -32,15 +32,6 @@ public class Rezeptbuch {
     }
 
 	/**
-	 * Füge Rezept an bestimmter Position zum Rezeptbuch hinzu
-	 * @param rezept das hinzuzufügende Rezept
-	 * @param position der Index des hinzuzufügenden Rezepts
-	 */
-	public void rezeptHinzufuegen(Rezept rezept, int position) {
-		this.rezepte.add(position, rezept);
-	}
-
-	/**
 	 * Entferne gegebenes Rezept aus dem Rezeptbuch
 	 * @param rezept Datenstrukturen.Rezept, das zu entfernen ist
 	 */
@@ -49,13 +40,10 @@ public class Rezeptbuch {
     }
 
 	/**
-	 * Entferne Rezept mit gegebenem Index aus dem Rezeptbuch
-	 * @param position Index der Position, die zu entfernen ist
+	 * Nimmt einen Rezept-Pointer entgegen und ersetzt diesen mit einem anderen Rezept
+	 * @param altesRezept Rezept, das zu ersetzen ist
+	 * @param neuesRezept Neues Rezept, welches das alte ersetzen soll
 	 */
-	public void rezeptEntfernen(int position) {
-		this.rezepte.remove(position);
-	}
-
 	public void rezeptSetzen(Rezept altesRezept, Rezept neuesRezept) {
 		rezepte.set(rezepte.indexOf(altesRezept), neuesRezept);
 	}

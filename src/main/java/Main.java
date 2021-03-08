@@ -1,4 +1,3 @@
-import Datenstrukturen.BeispielRezepte;
 import Datenstrukturen.Rezeptbuch;
 import GUIElemente.HauptPane;
 import javafx.application.Application;
@@ -6,8 +5,6 @@ import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
-
-import java.awt.event.ActionEvent;
 
 /**
  * Hauptklasse des Programms. Startes die GUI und erzeugt das Root-Element

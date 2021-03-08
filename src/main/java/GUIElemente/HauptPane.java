@@ -13,13 +13,13 @@ import javafx.scene.layout.BorderPane;
 public class HauptPane extends BorderPane {
 
     // Die drei 'großen', für die App benötighten Elemente
-    RezeptScrollListe rezeptScroll;
-    ButtonSteuerMenu buttonPane;
-    InputSteuerung inputGrid;
+    private final RezeptScrollListe rezeptScroll;
+    private final ButtonSteuerMenu buttonPane;
+    private final InputSteuerung inputGrid;
 
     // Die beiden Event-Listener für Buttons und Tabelle
-    ButtonClickManager cm;
-    TableClickManager tcm;
+    private final ButtonClickManager cm;
+    private final TableClickManager tcm;
 
     // Hier wird das aktuell ausgewählte Rezept als static-Variable gespeichert.
     public static Rezept rezeptWahl;

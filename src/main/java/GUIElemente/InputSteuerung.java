@@ -12,14 +12,14 @@ import javafx.scene.layout.*;
  */
 public class InputSteuerung extends GridPane {
 
-    private HBox nameDurationPane;
-    private Label nameLbl;
-    private Label zutatenLbl;
-    private Label anweisungsLbl;
-    private TextField nameField;
-    private TextField durationField;
-    private TextArea zutatenArea;
-    private TextArea anweisungsArea;
+    private final HBox nameDurationPane;
+    private final Label nameLbl;
+    private final Label zutatenLbl;
+    private final Label anweisungsLbl;
+    private final TextField nameField;
+    private final TextField durationField;
+    private final TextArea zutatenArea;
+    private final TextArea anweisungsArea;
 
     // Konstruktor, welcher alle Unterelemente richtig anordnet
     public InputSteuerung() {

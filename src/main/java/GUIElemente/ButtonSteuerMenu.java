@@ -12,9 +12,9 @@ import javafx.scene.layout.FlowPane;
 public class ButtonSteuerMenu extends FlowPane {
 
     // Die drei child-Buttons des Panels
-    private Button newBtn;
-    private Button saveBtn;
-    private Button deleteBtn;
+    private final Button newBtn;
+    private final Button saveBtn;
+    private final Button deleteBtn;
 
     // Standard-Konstruktor
     public ButtonSteuerMenu(){

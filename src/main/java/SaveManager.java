@@ -1,11 +1,9 @@
-import Datenstrukturen.BeispielRezepte;
 import Datenstrukturen.Rezept;
 import Datenstrukturen.Rezeptbuch;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 import java.io.*;
-import java.util.ArrayList;
 
 public class SaveManager {
 

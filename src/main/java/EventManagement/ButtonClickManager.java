@@ -17,14 +17,14 @@ import java.util.ArrayList;
 public class ButtonClickManager implements EventHandler<ActionEvent>{
 
     // Folgende Attribute sind nur dazu da, um Pointer der verwalteten GUI-Elemente zu speichern
-    private Button newBtn;
-    private Button saveBtn;
-    private Button deleteBtn;
-    private TextField nameField;
-    private TextField durationField;
-    private TextArea zutatenArea;
-    private TextArea anweisungsArea;
-    private TableView table;
+    private final Button newBtn;
+    private final Button saveBtn;
+    private final Button deleteBtn;
+    private final TextField nameField;
+    private final TextField durationField;
+    private final TextArea zutatenArea;
+    private final TextArea anweisungsArea;
+    private final TableView table;
 
     // Speichert nur den Pointer des im Programm verwendeten Rezeptbuchs
     private Rezeptbuch rezeptbuch;
@@ -172,6 +172,11 @@ public class ButtonClickManager implements EventHandler<ActionEvent>{
         return new Rezept(name, dauer, zutatenListe, anweisungsListe);
     }
 
+    /**
+     * Zeigt eine grafische Fehlermeldung an
+     * @param title Die Überschrift der Fehlermeldung
+     * @param message Der Text der Fehlermeldung (kann mehrzeilig sein)
+     */
     void showErrorAlert(String title, String message) {
         Alert errorAlert = new Alert(Alert.AlertType.ERROR);
         errorAlert.setHeaderText(title);

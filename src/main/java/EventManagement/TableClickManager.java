@@ -19,11 +19,11 @@ import javax.swing.event.ListSelectionListener;
 public class TableClickManager implements ListChangeListener<Rezept> {
 
     // Die Attribute sind nur da, um Pointer der benötigten Datenstrukturen und GUI-Elemente zu speichern
-    private TableView tableView;
-    private TextField nameField;
-    private TextField durationField;
-    private TextArea zutatenArea;
-    private TextArea anweisungsArea;
+    private final TableView tableView;
+    private final TextField nameField;
+    private final TextField durationField;
+    private final TextArea zutatenArea;
+    private final TextArea anweisungsArea;
 
     // Standard-Konstruktor. Nummt Pointer der verwalteten GUI-Klassen entgegen.
     public TableClickManager(TableView tableView, TextField nameField, TextField durationField, TextArea zutatenArea, TextArea anweisungsArea) {

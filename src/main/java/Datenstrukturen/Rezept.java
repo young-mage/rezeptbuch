@@ -32,20 +32,11 @@ public class Rezept implements Serializable {
     }
 
     /**
-     * Füge Zutat an bestimmter Stelle hinzu
-     * @param zutat die hinzuzufügende Datenstrukturen.Zutat
-     * @param position der Index der neuen Datenstrukturen.Zutat
-     */
-    public void zutatHinzufuegen(Zutat zutat, int position) {
-        this.zutaten.add(position, zutat);
-    }
-
-    /**
      * Entferne Zutat aus dem Rezept
-     * @param position der Index der entfernten Zutat
+     * @param zutat die zu entfernende Zutat
      */
-    public void zutatEntfernen(int position) {
-        this.zutaten.remove(position);
+    public void zutatEntfernen(Zutat zutat) {
+        this.zutaten.remove(zutat);
     }
 
     /**
@@ -57,20 +48,11 @@ public class Rezept implements Serializable {
     }
 
     /**
-     * Füge Anweisung an bestimmter Stelle zum Rezept hinzu
-     * @param anweisung Text der neuen Anweisung
-     * @param position Index der Anweisung
-     */
-    public void anweisungHinzufuegen(String anweisung, int position) {
-        this.anweisungen.add(position, anweisung);
-    }
-
-    /**
      * Entferne Anweisung aus der Anweisungsliste
-     * @param position Index der zu entfernenden Anweisung
+     * @param anweisung Die zu entfernenede Anweisung
      */
-    public void anweisungEntfernen(int position) {
-        this.anweisungen.remove(position);
+    public void anweisungEntfernen(String anweisung) {
+        this.anweisungen.remove(anweisung);
     }
 
     /**

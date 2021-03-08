@@ -16,12 +16,12 @@ import javafx.scene.layout.BorderPane;
 public class RezeptScrollListe extends BorderPane {
 
     // Die Attribute sind nur da, um Pointer der benötigten Datenstrukturen und GUI-Elemente zu speichern
-    private TableView<Rezept> rezeptTabelle;
+    private final TableView<Rezept> rezeptTabelle;
     private final ObservableList<Rezept> rezeptListe;
-    private Rezeptbuch rezeptbuch;
+    private final Rezeptbuch rezeptbuch;
 
-    private TableViewSelectionModel selectionModel; // Dieses Objekt speichert die aktuelle Tabellenauswahl des Nutzers
-    private ObservableList<Rezept> selectedItems;   // Diese Variable speichert das aktuell ausgewählte Objekt (aus formalen Gründen) in einer Liste
+    private final TableViewSelectionModel selectionModel; // Dieses Objekt speichert die aktuelle Tabellenauswahl des Nutzers
+    private final ObservableList<Rezept> selectedItems;   // Diese Variable speichert das aktuell ausgewählte Objekt (aus formalen Gründen) in einer Liste
 
     // Konstruktor mit Setup der Tabelle, Spalte und Click-Managements
     public RezeptScrollListe(Rezeptbuch rezeptbuch){
